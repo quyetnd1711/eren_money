@@ -17,6 +17,8 @@ def gold(request):
         type_gold = row.find_all("td")[0].text
         buy = row.find_all("td")[1].text
         sale = row.find_all("td")[2].text
+        if "0.5 chỉ" in type_gold:
+            type_gold = type_gold[:38]
         data = {
             "type": type_gold,
             "buy": buy,
